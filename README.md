@@ -1,1 +1,125 @@
 # ABiD_gr1_SebastianPilch
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    " # Połączenie z bazą danych przy pomocy sqlAlchemy"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from sqlalchemy import create_engine\n",
+    "\n",
+    "db_string = \"postgres://postgres:postgres@localhost:5432/test\"\n",
+    "\n",
+    "db = create_engine(db_string)\n",
+    "connection_sqlalchemy = db.connect()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Zapytanie do bazy i wypisanie wyników"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "scrolled": false,
+    "tags": [
+     "outputPrepend"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "result_set = db.execute(\"SELECT * FROM city\")  \n",
+    "for r in result_set:  \n",
+    "    print(r)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    " # Połączenie z bazą danych przy pomocy psycopg2 i pandas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import psycopg2 as pg\n",
+    "import pandas as pd\n",
+    "\n",
+    "connection = pg.connect(host='localhost', port=5432, dbname='test', user='postgres', password='postgres')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Zapytanie do bazy i wypisanie wyników"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pd.read_sql('select * from city',con=connection)\n",
+    "df"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Połączenie za pomocą sqlAlchemy i pandas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pd.read_sql('select * from city', con=connection_sqlalchemy)\n",
+    "df\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "9164a3399a70d355c381b62813f30880ed90ca5a6f321bf0d85375640bda7ee5"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.7.6 64-bit",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

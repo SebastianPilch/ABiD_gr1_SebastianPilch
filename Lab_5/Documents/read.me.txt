@@ -1,0 +1,17 @@
+Zadaniem realizowanym na laboratoriach było przetworzenie danych z otrzymanego zestawu.
+Na podstawie nazwiska został mi przydzielony plik z danymi weather.txt, zawierał on dane pogodowe ze stacji meteorologicznej.
+Zgodnie z poleceniem posortowałem dane według protokołu TIER oraz zasady tidy data.
+Po przeanalizowaniu bazy danych stworzyłem wykres zależności wskaźnika prcp oraz temperatur dla poszczególnych miesięcy roku 2010.
+
+
+Schemat wykonania:
+ - wczytanie danych z oryginalnego pliku
+ - posortowanie danych za pomocą funkcji do edycji plików txt
+   stowrzenie pliku weather2 z pomiarami, zawierają dane (wyrzucenie 31 dnia miesiąca itp.)
+ - stworzenie bazy csv z pliku weather2.txt 
+ - analiza danych w celu wyznaczenia najwyższej i najniżesz temperatury w obrębie 
+   miesiąca(przeszukanie i porównanie wszystkich dni pomiarowych)
+ - obliczenie średniego wskazania pcrp z dostępnych pomiarów 
+ - wyrysowanie wykresu za pomocą biblioteki pyplot z pakietu matplotlib
+ 
+Wykres przedstawiający finane dane został zapisany w folderze Analysis z kolei ostateczna baza danych w folderze Documents

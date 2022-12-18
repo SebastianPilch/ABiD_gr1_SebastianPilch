@@ -4,10 +4,10 @@
 
 # 2. Ile ulic w Nowym Jorku ma nazwy zaczynające się na „B”, „Q” i „M”?
 
-  -Q - 32
-  -B - 859
-  -M - 494
-  -w sumie 1385
+  - Q  32
+  - B  859
+  - M  494
+  - w sumie 1385
 
 # 3. Jaka jest populacja miasta Nowy Jork?
 
